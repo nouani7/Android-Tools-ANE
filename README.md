@@ -214,24 +214,9 @@ var installed:Boolean =
 
 trace(installed);
 ```
-
 ---
 
-### Android Manifest Configuration
-
-لم أحذفها لسبب تقني، وليس تقليلًا من أهميتها.
-
-الـ **comments داخل manifestAdditions** (مثل `<!-- SDK -->`, `<!-- Permissions -->`) ليست ضرورية للتنفيذ، وGitHub أو بعض أدوات البناء أحيانًا:
-
-* تجعل الملف أطول بدون فائدة تشغيلية
-* أو تُستخدم فقط للتوثيق وليس للإنتاج
-* بعض المطورين يفضّلون نسخة “clean” للنشر
-
-لكن بما أنك تريدها، هذا هو **نفس الكود لكن مع كل التوصيحات كما كتبتها بالكامل** 👇
-
----
-
-# ✅ ManifestAdditions (Full with Comments)
+## ✅ Android Manifest Configuration
 
 ```xml id="m7q2kp"
 <android>
@@ -335,15 +320,15 @@ trace(installed);
 
 ## ⚠️ Notes
 
-### ✔ USSD
+#### ✔ USSD
 
 * Some carriers do not return responses
 * Behavior depends on Android device implementation
 
-### ✔ Direct Call
+#### ✔ Direct Call
 
 * Requires runtime permission: `CALL_PHONE`
 
-### ✔ Installed Apps (Android 11+)
+#### ✔ Installed Apps (Android 11+)
 
 * Requires `<queries>` in Android manifest
