@@ -217,26 +217,7 @@ trace(installed);
 
 ---
 
-# ⚠️ Notes
-
-### ✔ USSD
-
-* Some carriers do not return responses
-* Behavior depends on Android device implementation
-
-### ✔ Direct Call
-
-* Requires runtime permission: `CALL_PHONE`
-
-### ✔ Installed Apps (Android 11+)
-
-* Requires `<queries>` in Android manifest
-
----
-
-# 🚀 Example Usage
-
-## 📱 Android Manifest Configuration
+### Android Manifest Configuration
 
 ```xml
 <android>
@@ -292,3 +273,22 @@ trace(installed);
 </manifest>
     ]]></manifestAdditions>
 </android>
+
+
+
+---
+
+# ⚠️ Notes
+
+### ✔ USSD
+
+* Some carriers do not return responses
+* Behavior depends on Android device implementation
+
+### ✔ Direct Call
+
+* Requires runtime permission: `CALL_PHONE`
+
+### ✔ Installed Apps (Android 11+)
+
+* Requires `<queries>` in Android manifest
