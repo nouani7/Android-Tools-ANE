@@ -201,8 +201,31 @@ trace(device.androidVersion);
 ```actionscript id="apps1"
 var apps:Array = tools.getInstalledApps();
 
+for (var i:int = 0; i < apps.length; i++)
+{
+    var app:Object = apps[i];
+
+    var name:String =
+        app.name ? app.name :
+        app.appName ? app.appName :
+        app.label ? app.label :
+        "Unknown";
+
+    var pkg:String =
+        app.packageName ? app.packageName :
+        app.package ? app.package :
+        "Unknown";
+
+    trace("App " + i);
+    trace("Name: " + name);
+    trace("Package: " + pkg);
+    trace("----------------");
+}
+
 trace(apps.length);
+
 ```
+Example: Display Installed Apps List
 
 ---
 
