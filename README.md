@@ -244,7 +244,7 @@ trace(installed);
 ```xml id="m7q2kp"
 <android>
     <manifestAdditions><![CDATA[
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest>
 
     <!-- ===================== -->
     <!-- SDK CONFIGURATION -->
