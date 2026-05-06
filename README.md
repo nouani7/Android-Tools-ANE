@@ -23,13 +23,13 @@ AndroidToolsANE is an Adobe AIR Native Extension that exposes Android system fea
 
 ---
 
-# 📘 AndroidToolsANE – Usage Guide
+## 📘 AndroidToolsANE – Usage Guide
 
 AndroidToolsANE is an Adobe AIR Native Extension that provides access to Android system features through a simple ActionScript 3 API.
 
 ---
 
-# 📌 Initialization
+## 📌 Initialization
 
 ```actionscript id="init1"
 import com.mx.android.tools.AndroidTools;
@@ -41,15 +41,15 @@ var tools:AndroidTools = new AndroidTools();
 
 ---
 
-# 📞 Phone Calls
+## 📞 Phone Calls
 
-## Open dialer (no permission required)
+### Open dialer (no permission required)
 
 ```actionscript id="dial1"
 tools.dial("0555123456");
 ```
 
-## Direct call (requires CALL_PHONE permission)
+### Direct call (requires CALL_PHONE permission)
 
 ```actionscript id="call1"
 tools.call("0555123456");
@@ -57,7 +57,7 @@ tools.call("0555123456");
 
 ---
 
-# 💬 SMS
+## 💬 SMS
 
 ```actionscript id="sms1"
 tools.sms("0555123456", "Hello from AndroidToolsANE");
@@ -65,7 +65,7 @@ tools.sms("0555123456", "Hello from AndroidToolsANE");
 
 ---
 
-# 📧 Email
+## 📧 Email
 
 ```actionscript id="email1"
 tools.email(
@@ -77,15 +77,15 @@ tools.email(
 
 ---
 
-# 📶 USSD
+## 📶 USSD
 
-## Simple USSD request
+### Simple USSD request
 
 ```actionscript id="ussd1"
 tools.ussd("*222#");
 ```
 
-## USSD with response handling
+### USSD with response handling
 
 ```actionscript id="ussd2"
 tools.ussdResult("*222#");
@@ -107,7 +107,7 @@ function onStatus(e:StatusEvent):void
 
 ---
 
-# 💚 WhatsApp
+## 💚 WhatsApp
 
 ```actionscript id="wa1"
 tools.whatsapp("0555123456", "Hello WhatsApp");
@@ -115,7 +115,7 @@ tools.whatsapp("0555123456", "Hello WhatsApp");
 
 ---
 
-# ✈️ Telegram
+## ✈️ Telegram
 
 ```actionscript id="tg1"
 tools.telegram("username");
@@ -123,7 +123,7 @@ tools.telegram("username");
 
 ---
 
-# 💬 Messenger
+## 💬 Messenger
 
 ```actionscript id="ms1"
 tools.messenger("user_id");
@@ -131,7 +131,7 @@ tools.messenger("user_id");
 
 ---
 
-# 🔒 Signal
+## 🔒 Signal
 
 ```actionscript id="sg1"
 tools.signal("0555123456");
@@ -139,7 +139,7 @@ tools.signal("0555123456");
 
 ---
 
-# 📇 Contact Picker
+## 📇 Contact Picker
 
 ```actionscript id="cp1"
 tools.pickContact();
@@ -147,7 +147,7 @@ tools.pickContact();
 
 ---
 
-# 🔋 Battery Information
+## 🔋 Battery Information
 
 ```actionscript id="bat1"
 var battery:Object = tools.getBatteryInfo();
@@ -158,7 +158,7 @@ trace(battery.isCharging);
 
 ---
 
-# 📡 Network Type
+## 📡 Network Type
 
 ```actionscript id="net1"
 trace(tools.getNetworkType());
@@ -173,7 +173,7 @@ trace(tools.getNetworkType());
 
 ---
 
-# 📱 SIM Information
+## 📱 SIM Information
 
 ```actionscript id="sim1"
 var sim:Object = tools.getSIMInfo();
@@ -184,7 +184,7 @@ trace(sim.country);
 
 ---
 
-# 📊 Device Information
+## 📊 Device Information
 
 ```actionscript id="dev1"
 var device:Object = tools.getDeviceInfo();
@@ -196,7 +196,7 @@ trace(device.androidVersion);
 
 ---
 
-# 📦 Installed Apps
+## 📦 Installed Apps
 
 ```actionscript id="apps1"
 var apps:Array = tools.getInstalledApps();
@@ -229,7 +229,7 @@ Example: Display Installed Apps List
 
 ---
 
-# 🔍 Check App Availability
+## 🔍 Check App Availability
 
 ```actionscript id="check1"
 var installed:Boolean =
@@ -341,7 +341,7 @@ trace(installed);
 ```
 ---
 
-## ⚠️ Notes
+### ⚠️ Notes
 
 #### ✔ USSD
 
