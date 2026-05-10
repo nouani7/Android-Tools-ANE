@@ -149,7 +149,27 @@ tools.signal("0555123456");
 ## 📇 Contact Picker
 
 ```actionscript id="cp1"
+
+tools.addEventListener(ContactEvent.SELECTED, onContact);
+tools.addEventListener(ContactEvent.CANCELLED, onCancelled);
+tools.addEventListener(ContactEvent.ERROR, onContactErr);
+
 tools.pickContact();
+
+function onContact(e: ContactEvent): void
+{
+	trace(e.name, e.phone); 
+}
+
+function onCancelled(e: ContactEvent): void
+{
+	txt_msg.text = ("User cancelled pick Contact");
+}
+function onContactErr(e: ContactEvent): void
+{
+	txt_msg.text = ("ERORR: " + e.phone);
+}
+
 ```
 
 ---
