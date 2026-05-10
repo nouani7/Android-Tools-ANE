@@ -163,11 +163,11 @@ function onContact(e: ContactEvent): void
 
 function onCancelled(e: ContactEvent): void
 {
-	txt_msg.text = ("User cancelled pick Contact");
+	trace("User cancelled pick Contact");
 }
 function onContactErr(e: ContactEvent): void
 {
-	txt_msg.text = ("ERORR: " + e.phone);
+	trace("ERORR: " + e.phone);
 }
 
 ```
@@ -188,16 +188,9 @@ trace(battery.isCharging);
 ## 📡 Network Type
 
 ```actionscript id="net1"
-trace(tools.getNetworkType());
+trace(tools.getNetworkType()); // "WIFI" | "MOBILE" | "ETHERNET" | "BLUETOOTH" | "NONE" | "UNKNOWN"
+
 ```
-
-### Possible values:
-
-* WIFI
-* MOBILE
-* ETHERNET
-* UNKNOWN
-
 ---
 
 ## 📱 SIM Information
@@ -214,11 +207,11 @@ trace(sim.country);
 ## 📊 Device Information
 
 ```actionscript id="dev1"
-var device:Object = tools.getDeviceInfo();
-
-trace(device.model);
-trace(device.manufacturer);
-trace(device.androidVersion);
+var dev:Object = tools.getDeviceInfo();
+trace(dev.brand);       
+trace(dev.model);        
+trace(dev.manufacturer); 
+trace(dev.android);   
 ```
 
 ---
@@ -269,12 +262,12 @@ trace(installed);
 ## ✅ Android Manifest Configuration
 
 ```xml id="m7q2kp"
-<android>
+  <android>
     <manifestAdditions><![CDATA[
 <manifest>
 
     <!-- ===================== -->
-    <!-- SDK CONFIGURATION -->
+    <!-- SDK -->
     <!-- ===================== -->
     <uses-sdk
         android:minSdkVersion="23"
@@ -287,37 +280,35 @@ trace(installed);
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <!-- ===================== -->
-    <!-- CALL / PHONE FEATURES -->
+    <!-- CALL / PHONE -->
     <!-- ===================== -->
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <!-- ===================== -->
-    <!-- SMS FEATURES -->
+    <!-- SMS -->
     <!-- ===================== -->
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.READ_SMS"/>
 
     <!-- ===================== -->
-    <!-- CONTACTS ACCESS -->
+    <!-- CONTACTS (if pickContact) -->
     <!-- ===================== -->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
     <!-- ===================== -->
-    <!-- DEVICE INFORMATION -->
+    <!-- DEVICE INFO -->
     <!-- ===================== -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <!-- ===================== -->
     <!-- ANDROID 11+ PACKAGE VISIBILITY -->
-    <!-- REQUIRED FOR WHATSAPP / TELEGRAM / MESSENGER -->
+    <!-- مهم جدًا لـ WhatsApp / Telegram / Messenger -->
     <!-- ===================== -->
     <queries>
 
-        <!-- ===================== -->
-        <!-- PHONE INTENTS -->
-        <!-- ===================== -->
+        <!-- Dial / Call -->
         <intent>
             <action android:name="android.intent.action.DIAL"/>
         </intent>
@@ -326,25 +317,17 @@ trace(installed);
             <action android:name="android.intent.action.CALL"/>
         </intent>
 
-        <!-- ===================== -->
-        <!-- SMS INTENTS -->
-        <!-- ===================== -->
+        <!-- SMS -->
         <intent>
             <action android:name="android.intent.action.SENDTO"/>
             <data android:scheme="smsto"/>
         </intent>
 
-        <!-- ===================== -->
-        <!-- EMAIL INTENTS -->
-        <!-- ===================== -->
+        <!-- Email -->
         <intent>
             <action android:name="android.intent.action.SENDTO"/>
             <data android:scheme="mailto"/>
         </intent>
-
-        <!-- ===================== -->
-        <!-- SOCIAL APPS -->
-        <!-- ===================== -->
 
         <!-- WhatsApp -->
         <package android:name="com.whatsapp"/>
@@ -361,10 +344,22 @@ trace(installed);
         <package android:name="org.thoughtcrime.securesms"/>
 
     </queries>
+	
+	<!-- ===================== -->
+    <!-- ACTIVITIES -->
+    <!-- ===================== -->
 
+    <application>
+        <!-- ContactPickerActivity — required For pickContact -->
+        <activity
+            android:name="com.mx.android.tools.ContactPickerActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false"/>
+    </application>
+	
 </manifest>
     ]]></manifestAdditions>
-</android>
+  </android>
 ```
 ---
 
