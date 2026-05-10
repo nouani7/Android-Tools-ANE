@@ -33,7 +33,9 @@ AndroidToolsANE is an Adobe AIR Native Extension that provides access to Android
 
 ```actionscript id="init1"
 import com.mx.android.tools.AndroidTools;
-import flash.events.StatusEvent;
+import com.mx.android.tools.events.USSDResultEvent;
+import com.mx.android.tools.events.ContactEvent;
+
 ```
 ```actionscript id="init1"
 var tools:AndroidTools = new AndroidTools();
