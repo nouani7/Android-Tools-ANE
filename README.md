@@ -96,15 +96,20 @@ tools.ussdResult("*222#");
 ### Handle response
 
 ```actionscript id="ussd3"
-tools.addEventListener(StatusEvent.STATUS, onStatus);
+tools.addEventListener(USSDResultEvent.RESULT, onUSSD);
 
-function onStatus(e:StatusEvent):void
+function onUSSD(e: USSDResultEvent): void
 {
-    if (e.code == "USSD_SUCCESS")
-    {
-        trace("USSD Result: " + e.level);
-    }
+	if (e.isSuccess)
+	{
+		 trace("USSD Result: " + e.result);
+	}
+	else
+	{
+		trace("ERORR:" + e.result);
+	}
 }
+
 ```
 
 ---
